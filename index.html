@@ -509,9 +509,7 @@
       padding-bottom: 250px;
     }
 
-    .ai-adoption-slide {
-      background: linear-gradient(90deg, #f0f4ff 0%, #fffaf0 100%);
-    }
+    
 
     .ai-adoption-slide .slide-content {
       display: flex;
@@ -523,7 +521,6 @@
       display: flex;
       width: 100%;
       max-width: 900px;
-      background: linear-gradient(90deg, #f0f4ff 0%, #fffaf0 100%);
       border-radius: 16px;
       padding: 2rem 3rem;
       margin: 0 auto;
@@ -564,7 +561,7 @@
     }
 
     .ai-adoption-container .left-column p {
-      font-size: 0.95rem;
+      font-size: 16px;
       color: #6c757d;
       line-height: 1.6;
       opacity: 1 !important;
@@ -674,9 +671,6 @@
     /* Offering Fabric Slide specific styles */
     .offering-fabric-slide {
       background-color: #f7f8fa;
-      background-image: linear-gradient(rgba(224, 224, 224, 0.3) 1px,
-          transparent 1px),
-        linear-gradient(90deg, rgba(224, 224, 224, 0.3) 1px, transparent 1px);
       background-size: 20px 20px;
     }
 
@@ -1977,7 +1971,7 @@
           const doc = new jsPDF({
             orientation: "landscape",
             unit: "mm",
-            format: "a4",
+            format:  [297, 167],
             compress: true,
             putOnlyUsedFonts: true,
             hotfixes: ["px_scaling"],
@@ -2080,7 +2074,7 @@
             const ratio = Math.min(horizontalRatio, verticalRatio * 1.15); // Increase vertical ratio by 10%
 
             const imgX = (pdfWidth - imgWidth * ratio) / 2;
-            const imgY = (pdfHeight - imgHeight * ratio) / 2 - 15; // Move up by 5mm
+            const imgY = (pdfHeight - imgHeight * ratio) / 2 - 5; // Move up by 5mm
             doc.addImage(
               imgData,
               "JPEG",

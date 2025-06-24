@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-  <title> AI Agent Demo Platform</title>
+  <title>docusign - AI Agent Platform</title>
   </title>
   <link rel="stylesheet" href="dist/reset.css" />
   <link rel="stylesheet" href="dist/theme/black.css" />
@@ -1422,24 +1422,6 @@
       border: none;
       border-radius: 10px;
     }
-
-    /* Interview Agent Storylane Modal Styles */
-    .interview-storylane-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      z-index: 2100;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .interview-storylane-modal.active {
-      display: flex;
-    }
   </style>
 </head>
 
@@ -1456,23 +1438,12 @@
     <img class="zoom-image" id="zoomedImage" src="" alt="Zoomed Image" />
   </div>
 
-  <!-- Storylane Modal Overlay for Onboarding Agent -->
+  <!-- Storylane Modal Overlay - UPDATED with new URL -->
   <div class="storylane-modal" id="storylaneModal">
     <div class="storylane-container">
       <div class="close-storylane" onclick="closeStorylaneTour()">&times;</div>
       <div class="storylane-iframe-container">
-        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/d9xx3md7cyhg?embed=inline"
-          name="sl-embed" allow="fullscreen" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Storylane Modal Overlay for Interview Agent -->
-  <div class="storylane-modal" id="interviewStorylineModal">
-    <div class="storylane-container">
-      <div class="close-storylane" onclick="closeInterviewStorylaneTour()">&times;</div>
-      <div class="storylane-iframe-container">
-        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/daptmkw6awmo?embed=inline"
+        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/vnxix4whxb5x?embed=inline"
           name="sl-embed" allow="fullscreen" allowfullscreen></iframe>
       </div>
     </div>
@@ -1773,7 +1744,7 @@
                     <strong>ROI highlights:</strong> Lower HR overhead, faster
                     onboarding, improved compliance, no operational delays.
                   </p>
-                  <!-- For Onboarding Agent, keep the original link -->
+                  <!-- For Onboarding Agent, replace the button with this text link -->
                   <p style="font-size: 16px">
                     <a href="javascript:openStorylaneTour()" style="color: #002060">
                       <strong><u>Launch Interactive Demo →</u></strong>
@@ -1811,9 +1782,9 @@
                     <strong>ROI highlights:</strong> Faster hiring, reduced
                     effort, better candidate experience, improved outcomes.
                   </p>
-                  <!-- For Interview Agent, use the new function to open the interview-specific demo -->
+                  <!-- For Interview Agent, replace the button with this text link -->
                   <p style="font-size: 16px">
-                    <a href="javascript:openInterviewStorylaneTour()" style="color: #002060">
+                    <a href="javascript:openStorylaneTour()" style="color: #002060">
                       <strong><u>Launch Interactive Demo →</u></strong>
                     </a>
                   </p>
@@ -2074,7 +2045,7 @@
       Reveal.configure({ keyboard: true });
     }
 
-    // Function to open Storylane tour for Onboarding Agent
+    // Function to open Storylane tour
     function openStorylaneTour() {
       const modal = document.getElementById("storylaneModal");
       modal.classList.add("active");
@@ -2083,27 +2054,9 @@
       Reveal.configure({ keyboard: false });
     }
 
-    // Function to close Storylane tour for Onboarding Agent
+    // Function to close Storylane tour
     function closeStorylaneTour() {
       const modal = document.getElementById("storylaneModal");
-      modal.classList.remove("active");
-
-      // Re-enable Reveal.js keyboard navigation
-      Reveal.configure({ keyboard: true });
-    }
-
-    // Function to open Storylane tour for Interview Agent
-    function openInterviewStorylaneTour() {
-      const modal = document.getElementById("interviewStorylineModal");
-      modal.classList.add("active");
-
-      // Disable Reveal.js keyboard navigation while tour is active
-      Reveal.configure({ keyboard: false });
-    }
-
-    // Function to close Storylane tour for Interview Agent
-    function closeInterviewStorylaneTour() {
-      const modal = document.getElementById("interviewStorylineModal");
       modal.classList.remove("active");
 
       // Re-enable Reveal.js keyboard navigation
@@ -2128,15 +2081,6 @@
         }
       });
 
-    // Close Interview Storylane modal when clicking outside the container
-    document
-      .getElementById("interviewStorylineModal")
-      .addEventListener("click", function (event) {
-        if (event.target === this) {
-          closeInterviewStorylaneTour();
-        }
-      });
-
     // Close zoom/storylane with Escape key
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
@@ -2145,9 +2089,6 @@
         }
         if (document.getElementById("storylaneModal").classList.contains("active")) {
           closeStorylaneTour();
-        }
-        if (document.getElementById("interviewStorylineModal").classList.contains("active")) {
-          closeInterviewStorylaneTour();
         }
       }
     });

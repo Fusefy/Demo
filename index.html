@@ -1438,12 +1438,23 @@
     <img class="zoom-image" id="zoomedImage" src="" alt="Zoomed Image" />
   </div>
 
-  <!-- Storylane Modal Overlay - UPDATED with new URL -->
-  <div class="storylane-modal" id="storylaneModal">
+  <!-- Onboarding Agent Storylane Modal -->
+  <div class="storylane-modal" id="onboardingStoryModal">
     <div class="storylane-container">
-      <div class="close-storylane" onclick="closeStorylaneTour()">&times;</div>
+      <div class="close-storylane" onclick="closeStorylaneTour('onboardingStoryModal')">&times;</div>
       <div class="storylane-iframe-container">
-        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/vnxix4whxb5x?embed=inline"
+        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/d9xx3md7cyhg?embed=inline" 
+          name="sl-embed" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interview Agent Storylane Modal -->
+  <div class="storylane-modal" id="interviewStoryModal">
+    <div class="storylane-container">
+      <div class="close-storylane" onclick="closeStorylaneTour('interviewStoryModal')">&times;</div>
+      <div class="storylane-iframe-container">
+        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/daptmkw6awmo?embed=inline" 
           name="sl-embed" allow="fullscreen" allowfullscreen></iframe>
       </div>
     </div>
@@ -1744,9 +1755,9 @@
                     <strong>ROI highlights:</strong> Lower HR overhead, faster
                     onboarding, improved compliance, no operational delays.
                   </p>
-                  <!-- For Onboarding Agent, replace the button with this text link -->
+                  <!-- For Onboarding Agent, use the specific link to open its modal -->
                   <p style="font-size: 16px">
-                    <a href="javascript:openStorylaneTour()" style="color: #002060">
+                    <a href="javascript:openOnboardingStorylaneTour()" style="color: #002060">
                       <strong><u>Launch Interactive Demo →</u></strong>
                     </a>
                   </p>
@@ -1764,6 +1775,7 @@
                     justify-content: space-between;
                     align-items: flex-start;
                     gap: 15px;
+                    margin-top: 30px;
                   ">
                 <div style="flex: 4">
                   <h3 style="
@@ -1782,9 +1794,9 @@
                     <strong>ROI highlights:</strong> Faster hiring, reduced
                     effort, better candidate experience, improved outcomes.
                   </p>
-                  <!-- For Interview Agent, replace the button with this text link -->
+                  <!-- For Interview Agent, use the specific link to open its modal -->
                   <p style="font-size: 16px">
-                    <a href="javascript:openStorylaneTour()" style="color: #002060">
+                    <a href="javascript:openInterviewStorylaneTour()" style="color: #002060">
                       <strong><u>Launch Interactive Demo →</u></strong>
                     </a>
                   </p>
@@ -2045,9 +2057,18 @@
       Reveal.configure({ keyboard: true });
     }
 
-    // Function to open Storylane tour
-    function openStorylaneTour() {
-      const modal = document.getElementById("storylaneModal");
+    // Function to open Onboarding Agent Storylane tour
+    function openOnboardingStorylaneTour() {
+      const modal = document.getElementById("onboardingStoryModal");
+      modal.classList.add("active");
+
+      // Disable Reveal.js keyboard navigation while tour is active
+      Reveal.configure({ keyboard: false });
+    }
+
+    // Function to open Interview Agent Storylane tour
+    function openInterviewStorylaneTour() {
+      const modal = document.getElementById("interviewStoryModal");
       modal.classList.add("active");
 
       // Disable Reveal.js keyboard navigation while tour is active
@@ -2055,8 +2076,8 @@
     }
 
     // Function to close Storylane tour
-    function closeStorylaneTour() {
-      const modal = document.getElementById("storylaneModal");
+    function closeStorylaneTour(modalId) {
+      const modal = document.getElementById(modalId);
       modal.classList.remove("active");
 
       // Re-enable Reveal.js keyboard navigation
@@ -2072,12 +2093,20 @@
         }
       });
 
-    // Close Storylane modal when clicking outside the container
+    // Close Storylane modals when clicking outside the container
     document
-      .getElementById("storylaneModal")
+      .getElementById("onboardingStoryModal")
       .addEventListener("click", function (event) {
         if (event.target === this) {
-          closeStorylaneTour();
+          closeStorylaneTour('onboardingStoryModal');
+        }
+      });
+
+    document
+      .getElementById("interviewStoryModal")
+      .addEventListener("click", function (event) {
+        if (event.target === this) {
+          closeStorylaneTour('interviewStoryModal');
         }
       });
 
@@ -2087,8 +2116,11 @@
         if (document.getElementById("zoomOverlay").classList.contains("active")) {
           closeZoom();
         }
-        if (document.getElementById("storylaneModal").classList.contains("active")) {
-          closeStorylaneTour();
+        if (document.getElementById("onboardingStoryModal").classList.contains("active")) {
+          closeStorylaneTour('onboardingStoryModal');
+        }
+        if (document.getElementById("interviewStoryModal").classList.contains("active")) {
+          closeStorylaneTour('interviewStoryModal');
         }
       }
     });

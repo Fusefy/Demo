@@ -5,10 +5,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-  <title>reveal.js</title>
+  <title>docusign - AI Agent Platform</title>
+  </title>
   <link rel="stylesheet" href="dist/reset.css" />
-  <link rel="stylesheet" href="dist/reveal.css" />
   <link rel="stylesheet" href="dist/theme/black.css" />
+  <link rel="stylesheet" href="dist/reveal.css" />
 
   <!-- Theme used for syntax highlighted code -->
   <link rel="stylesheet" href="plugin/highlight/monokai.css" />
@@ -20,6 +21,9 @@
   <!-- Add jsPDF and html2canvas libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- Add Storylane script -->
+  <script async src="https://js.storylane.io/js/v2/storylane.js"></script>
 
   <style>
     /* Custom animations for headings */
@@ -509,7 +513,7 @@
       padding-bottom: 250px;
     }
 
-    
+
 
     .ai-adoption-slide .slide-content {
       display: flex;
@@ -1328,6 +1332,114 @@
       height: auto;
       display: block;
     }
+
+    /* Storylane Tour Button Styles */
+    .tour-btn {
+      background-color: #0021F3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      margin-top: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .tour-btn:hover {
+      background-color: #001bc5;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .tour-btn svg {
+      margin-right: 8px;
+    }
+
+    /* Storylane Modal Styles */
+    .storylane-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 2100;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .storylane-modal.active {
+      display: flex;
+    }
+
+    .storylane-container {
+      position: relative;
+      width: 90%;
+      height: 90%;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .close-storylane {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      color: #002060;
+      background: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 2200;
+    }
+
+    /* Fixed Storylane iframe container */
+    .storylane-iframe-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .storylane-iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+
+    /* Interview Agent Storylane Modal Styles */
+    .interview-storylane-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 2100;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .interview-storylane-modal.active {
+      display: flex;
+    }
   </style>
 </head>
 
@@ -1343,6 +1455,29 @@
     <div class="close-zoom" onclick="closeZoom()">&times;</div>
     <img class="zoom-image" id="zoomedImage" src="" alt="Zoomed Image" />
   </div>
+
+  <!-- Storylane Modal Overlay for Onboarding Agent -->
+  <div class="storylane-modal" id="storylaneModal">
+    <div class="storylane-container">
+      <div class="close-storylane" onclick="closeStorylaneTour()">&times;</div>
+      <div class="storylane-iframe-container">
+        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/vnxix4whxb5x?embed=inline"
+          name="sl-embed" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Storylane Modal Overlay for Interview Agent -->
+  <div class="storylane-modal" id="interviewStorylineModal">
+    <div class="storylane-container">
+      <div class="close-storylane" onclick="closeInterviewStorylaneTour()">&times;</div>
+      <div class="storylane-iframe-container">
+        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/daptmkw6awmo?embed=inline"
+          name="sl-embed" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
   <div class="reveal">
     <div class="slides">
       <section class="index-slide" data-auto-animate>
@@ -1638,10 +1773,10 @@
                     <strong>ROI highlights:</strong> Lower HR overhead, faster
                     onboarding, improved compliance, no operational delays.
                   </p>
+                  <!-- For Onboarding Agent, keep the original link -->
                   <p style="font-size: 16px">
-                    <a href="http://onboarding-agent-ui-alb-863758209.us-east-1.elb.amazonaws.com/" target="_blank"
-                      style="color: #002060">
-                      <strong><u>Access Onboarding Agent →</u></strong>
+                    <a href="javascript:openStorylaneTour()" style="color: #002060">
+                      <strong><u>Launch Interactive Demo →</u></strong>
                     </a>
                   </p>
                 </div>
@@ -1676,9 +1811,10 @@
                     <strong>ROI highlights:</strong> Faster hiring, reduced
                     effort, better candidate experience, improved outcomes.
                   </p>
+                  <!-- For Interview Agent, use the new function to open the interview-specific demo -->
                   <p style="font-size: 16px">
-                    <a href="#" target="_blank" style="color: #002060">
-                      <strong><u>Access Interview Agent →</u></strong>
+                    <a href="javascript:openInterviewStorylaneTour()" style="color: #002060">
+                      <strong><u>Launch Interactive Demo →</u></strong>
                     </a>
                   </p>
                 </div>
@@ -1938,6 +2074,42 @@
       Reveal.configure({ keyboard: true });
     }
 
+    // Function to open Storylane tour for Onboarding Agent
+    function openStorylaneTour() {
+      const modal = document.getElementById("storylaneModal");
+      modal.classList.add("active");
+
+      // Disable Reveal.js keyboard navigation while tour is active
+      Reveal.configure({ keyboard: false });
+    }
+
+    // Function to close Storylane tour for Onboarding Agent
+    function closeStorylaneTour() {
+      const modal = document.getElementById("storylaneModal");
+      modal.classList.remove("active");
+
+      // Re-enable Reveal.js keyboard navigation
+      Reveal.configure({ keyboard: true });
+    }
+
+    // Function to open Storylane tour for Interview Agent
+    function openInterviewStorylaneTour() {
+      const modal = document.getElementById("interviewStorylineModal");
+      modal.classList.add("active");
+
+      // Disable Reveal.js keyboard navigation while tour is active
+      Reveal.configure({ keyboard: false });
+    }
+
+    // Function to close Storylane tour for Interview Agent
+    function closeInterviewStorylaneTour() {
+      const modal = document.getElementById("interviewStorylineModal");
+      modal.classList.remove("active");
+
+      // Re-enable Reveal.js keyboard navigation
+      Reveal.configure({ keyboard: true });
+    }
+
     // Close zoom overlay when clicking outside the image
     document
       .getElementById("zoomOverlay")
@@ -1947,13 +2119,36 @@
         }
       });
 
-    // Close zoom with Escape key
+    // Close Storylane modal when clicking outside the container
+    document
+      .getElementById("storylaneModal")
+      .addEventListener("click", function (event) {
+        if (event.target === this) {
+          closeStorylaneTour();
+        }
+      });
+
+    // Close Interview Storylane modal when clicking outside the container
+    document
+      .getElementById("interviewStorylineModal")
+      .addEventListener("click", function (event) {
+        if (event.target === this) {
+          closeInterviewStorylaneTour();
+        }
+      });
+
+    // Close zoom/storylane with Escape key
     document.addEventListener("keydown", function (event) {
-      if (
-        event.key === "Escape" &&
-        document.getElementById("zoomOverlay").classList.contains("active")
-      ) {
-        closeZoom();
+      if (event.key === "Escape") {
+        if (document.getElementById("zoomOverlay").classList.contains("active")) {
+          closeZoom();
+        }
+        if (document.getElementById("storylaneModal").classList.contains("active")) {
+          closeStorylaneTour();
+        }
+        if (document.getElementById("interviewStorylineModal").classList.contains("active")) {
+          closeInterviewStorylaneTour();
+        }
       }
     });
   </script>
@@ -1971,7 +2166,7 @@
           const doc = new jsPDF({
             orientation: "landscape",
             unit: "mm",
-            format:  [297, 167],
+            format: [297, 167],
             compress: true,
             putOnlyUsedFonts: true,
             hotfixes: ["px_scaling"],
@@ -1991,10 +2186,15 @@
             downloadBtn.style.display = "none";
           }
 
-          // Hide zoom hints for PDF export
+          // Hide zoom hints and tour button for PDF export
           const zoomHints = document.querySelectorAll(".zoom-hint");
           zoomHints.forEach((hint) => {
             hint.style.display = "none";
+          });
+
+          const tourBtns = document.querySelectorAll(".tour-btn");
+          tourBtns.forEach((btn) => {
+            btn.style.display = "none";
           });
 
           // Process each slide
@@ -2120,6 +2320,11 @@
             hint.style.display = "";
           });
 
+          // Show tour buttons again
+          tourBtns.forEach((btn) => {
+            btn.style.display = "inline-flex";
+          });
+
           // Show download button again
           if (downloadBtn) {
             downloadBtn.style.display = "flex";
@@ -2137,6 +2342,12 @@
           if (downloadBtn) {
             downloadBtn.style.display = "flex";
           }
+
+          // Show tour buttons again in case of error
+          const tourBtns = document.querySelectorAll(".tour-btn");
+          tourBtns.forEach((btn) => {
+            btn.style.display = "inline-flex";
+          });
         }
       });
   </script>

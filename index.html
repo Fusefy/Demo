@@ -39,7 +39,7 @@
     .bar {
       width: 50px;
       height: 5px;
-      background-color: #0021F3;
+      background-color: #0021f3;
       margin-bottom: 20px;
 
     }
@@ -680,7 +680,7 @@
 
     .offering-fabric-slide .fabric-diagram {
       display: flex;
-      padding-top: 40px;
+      padding-top: 0px;
       align-items: flex-start;
       justify-content: center;
       flex-grow: 1;
@@ -1240,6 +1240,12 @@
       transition: all 0.5s cubic-bezier(0.26, 0.86, 0.44, 0.985);
     }
 
+    .stage-icon img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
     .stage-title {
       color: #002060;
       font-size: 18px;
@@ -1422,6 +1428,414 @@
       border: none;
       border-radius: 10px;
     }
+
+    /* FUSEFY Service Offerings Slide */
+    :root {
+      --primary-blue: #233dff;
+      --primary-blue-dark: #0022a1;
+      --primary-gold: #f5b025;
+      --text-dark: #333;
+      --text-light: #fff;
+      --bg-light: #f8f9fe;
+      --border-light: #e3e8ff;
+      --team-bg-blue: #f0f3ff;
+      --team-bg-gold: #fff8e1;
+      --font-family: 'Poppins', sans-serif;
+      --animation-duration: 0.8s;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      /* Only apply these for the standalone HTML, not for Reveal.js slides */
+      /* Remove or override as needed for Reveal.js context */
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.35;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e9eaf2' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .services-container {
+      max-width: 1024px;
+      width: 100%;
+      margin: 0 auto;
+      padding-top: 33px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .service-card {
+      background-color: var(--text-light);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      opacity: 0;
+      transform: translateY(30px);
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .service-card:nth-child(1) {
+      animation: fadeInUp var(--animation-duration) 0.3s forwards;
+    }
+
+    .service-card:nth-child(2) {
+      animation: fadeInUp var(--animation-duration) 0.6s forwards;
+    }
+
+    .service-card:nth-child(3) {
+      animation: fadeInUp var(--animation-duration) 0.9s forwards;
+    }
+
+    .service-card:nth-child(4) {
+      animation: fadeInUp var(--animation-duration) 1.2s forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      70% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card-header {
+      margin-top: -42px;
+    }
+
+    .card-icon-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .icon-blue {
+      border: 2px solid var(--primary-blue);
+      color: var(--primary-blue);
+    }
+
+    .icon-gold {
+      border: 2px solid var(--primary-gold);
+      color: var(--primary-gold);
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      color: var(--primary-blue);
+      text-transform: uppercase;
+    }
+
+    .price-bar {
+      color: var(--text-light);
+      font-weight: 600;
+      padding: 5px 8px;
+      border-radius: 6px;
+      margin: 0 auto 12px;
+      font-size: 0.8rem;
+    }
+
+    .blue-bar {
+      background-color: var(--primary-blue-dark);
+    }
+
+    .gold-bar {
+      background-color: var(--primary-gold);
+    }
+
+    .wavy-underline {
+      text-decoration: underline;
+      text-decoration-style: wavy;
+      text-decoration-color: #ff6b6b;
+      text-underline-offset: 2px;
+    }
+
+    .card-body {
+      flex-grow: 1;
+      text-align: left;
+    }
+
+    .card-body h4 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      color: #555;
+      letter-spacing: 0.5px;
+      font-size: 0.75rem;
+    }
+
+    .card-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .card-body li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      font-size: 0.78rem;
+      color: #555;
+    }
+
+    .card-body li::before {
+      content: '✔';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: var(--primary-blue);
+      color: var(--text-light);
+      font-size: 9px;
+      font-weight: bold;
+      margin-right: 8px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .card-footer {
+      margin-top: 10px;
+    }
+
+    .team-info {
+      background-color: var(--team-bg-blue);
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      text-align: left;
+      position: relative;
+    }
+
+    .team-info::before {
+      content: '✔';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: var(--primary-blue);
+      color: var(--text-light);
+      font-size: 9px;
+      font-weight: bold;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    .card-footer::before {
+      content: '';
+      display: block;
+      border-top: 1px dashed #ccc;
+      margin: 0 5px 8px;
+    }
+
+    .service-card.all-inclusive {
+      border-color: var(--primary-gold);
+    }
+
+    .all-inclusive .card-title {
+      color: var(--primary-gold);
+    }
+
+    .all-inclusive .card-body li::before,
+    .all-inclusive .team-info-highlight::before {
+      background-color: var(--primary-gold);
+    }
+
+    .all-inclusive .team-info-highlight {
+      background-color: var(--team-bg-gold);
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      text-align: left;
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .all-inclusive .card-body ul::after {
+      content: '';
+      display: block;
+      border-top: 1px dashed #ccc;
+      margin: 10px 5px 0;
+    }
+
+    .all-inclusive .card-footer {
+      display: none;
+    }
+
+    .footer-notes {
+      margin-top: 15px;
+      padding: 0 20px;
+      font-size: 0.7rem;
+      color: #666;
+      opacity: 0;
+      animation: fadeIn 0.8s 1.6s forwards;
+    }
+
+    .footer-notes ul {
+      list-style-type: disc;
+      padding-left: 15px;
+      margin: 0;
+    }
+
+    .footer-notes li {
+      margin-bottom: 2px;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .footer-notes li:nth-child(1) {
+      animation: fadeInUpSmooth 0.6s 1.8s forwards;
+    }
+
+    .footer-notes li:nth-child(2) {
+      animation: fadeInUpSmooth 0.6s 2.1s forwards;
+    }
+
+    .footer-notes li:nth-child(3) {
+      animation: fadeInUpSmooth 0.6s 2.4s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUpSmooth {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer-notes a {
+      color: var(--primary-blue);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .footer-notes a:hover {
+      text-decoration: underline;
+    }
+
+    /* Empty slide styles */
+    .empty-slide {
+      background-color: white;
+    }
+
+    /* Animation styles for the three images in the empty slide */
+    @keyframes fadeInFromTop {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInFromRight {
+      0% {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInFromBottom {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .image-top-left {
+      opacity: 0;
+      animation: fadeInFromTop 0.8s ease-out 0.5s forwards;
+    }
+
+    .image-top-right {
+      opacity: 0;
+      animation: fadeInFromRight 0.8s ease-out 1.3s forwards;
+    }
+
+    .image-bottom {
+      opacity: 0;
+      animation: fadeInFromBottom 0.8s ease-out 2.1s forwards;
+    }
+
+    /* Last slide sequential animation styles */
+    .sequential-image {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .sequential-content {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
   </style>
 </head>
 
@@ -1443,7 +1857,7 @@
     <div class="storylane-container">
       <div class="close-storylane" onclick="closeStorylaneTour('onboardingStoryModal')">&times;</div>
       <div class="storylane-iframe-container">
-        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/d9xx3md7cyhg?embed=inline" 
+        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/d9xx3md7cyhg?embed=inline"
           name="sl-embed" allow="fullscreen" allowfullscreen></iframe>
       </div>
     </div>
@@ -1454,7 +1868,7 @@
     <div class="storylane-container">
       <div class="close-storylane" onclick="closeStorylaneTour('interviewStoryModal')">&times;</div>
       <div class="storylane-iframe-container">
-        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/daptmkw6awmo?embed=inline" 
+        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/daptmkw6awmo?embed=inline"
           name="sl-embed" allow="fullscreen" allowfullscreen></iframe>
       </div>
     </div>
@@ -1482,6 +1896,45 @@
           <div class="footer-content">
             <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
             <span class="page-number">01</span>
+          </div>
+        </footer>
+      </section>
+
+      <!-- New Empty Slide -->
+      <section class="empty-slide">
+        <div class="slide-padding">
+          <header class="slide-header">
+            <h1>What is your AI Challenge ?</h1>
+            <img src="images/A blue cube with lines and dots Description automatically generated.png"
+              alt="Company Logo">
+          </header>
+          <main class="slide-content" style="display: flex; flex-direction: column;">
+            <!-- Top row with image 1 and image 3 side by side -->
+            <div
+              style="width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: -40px;">
+              <!-- Image 1 on top left/center -->
+              <div style="flex: 3; display: flex; justify-content: flex-end;">
+                <img src="images/image 2.png" alt="Trustworthy AI Value realization"
+                  style="width: 35%; padding-right: 65px; height: auto;" class="image-top-left" />
+              </div>
+              <!-- Image 3 on top right -->
+              <div style="display: flex; flex:2; justify-content: flex-start; align-self: self-end;">
+                <img src="images/image 3.png" alt="What is your AI Challenge"
+                  style="width: 40%; height: auto; padding-left: 48px" class="image-top-right" />
+              </div>
+            </div>
+
+            <!-- Image 2 below image 1 -->
+            <div style="width: 100%; display: flex; justify-content: center; margin-top: 0px;">
+              <img src="images/image 1.jpg" alt="AI Challenge Factors" style="width: 60%; height: auto;"
+                class="image-bottom" />
+            </div>
+          </main>
+        </div>
+        <footer class="slide-footer">
+          <div class="footer-content">
+            <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
+            <span class="page-number">02</span>
           </div>
         </footer>
       </section>
@@ -1580,7 +2033,7 @@
         <footer class="slide-footer">
           <div class="footer-content">
             <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
-            <span class="page-number">02</span>
+            <span class="page-number">03</span>
           </div>
         </footer>
       </section>
@@ -1643,7 +2096,7 @@
         <footer class="slide-footer">
           <div class="footer-content">
             <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
-            <span class="page-number">03</span>
+            <span class="page-number">04</span>
           </div>
         </footer>
       </section>
@@ -1716,7 +2169,7 @@
         <footer class="slide-footer">
           <div class="footer-content">
             <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
-            <span class="page-number">04</span>
+            <span class="page-number">05</span>
           </div>
         </footer>
       </section>
@@ -1813,7 +2266,7 @@
         <footer class="slide-footer">
           <div class="footer-content">
             <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
-            <span class="page-number">05</span>
+            <span class="page-number">06</span>
           </div>
         </footer>
       </section>
@@ -1857,7 +2310,7 @@
                         margin-bottom: 15px;
                         font-size: 16px;
                         line-height: 1.6;
-                      ">
+                                           ">
                     <strong>AI Security Radar:</strong> Monitor
                     vulnerabilities and enforce data protection across your AI
                     landscape.
@@ -1891,22 +2344,211 @@
         <footer class="slide-footer">
           <div class="footer-content">
             <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
-            <span class="page-number">06</span>
+            <span class="page-number">07</span>
           </div>
         </footer>
       </section>
-      <section class="offering-fabric-slide" data-auto-animate data-transition="zoom">
+
+      <!-- FUSEFY Service Offerings Slide -->
+      <section class="content-slide service-offerings-slide" data-transition="slide">
         <div class="slide-padding">
           <header class="slide-header">
+            <h1>FUSEFY Service Offerings</h1>
+            <img src="images/A blue cube with lines and dots Description automatically generated.png" alt="Company Logo"
+              class="company-logo" />
+          </header>
+          <main class="slide-content">
+            <!-- Begin user-provided content -->
+            <div class="services-container">
+              <div class="services-grid">
+
+                <!-- Ideation Studio Card -->
+                <div class="service-card">
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <div class="card-icon icon-blue">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M12 22c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6M12 12a4 4 0 00-3.46 6"
+                            stroke="currentColor" stroke-width="1.5" />
+                          <path d="M14 16h-4M12 18v2M12 8v2" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        </svg>
+
+                      </div>
+                    </div>
+                    <h3 class="card-title">IDEATION STUDIO</h3>
+                    <div class="price-bar blue-bar">
+                      $X0000/10 weeks
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4>OFFERINGS</h4>
+                    <ul>
+                      <li>Design Thinking Workshop,</li>
+                      <li>AI Maturity assessments, roadmaps</li>
+                      <li>Platform for duration of assessment with 40 hours of Platform Services</li>
+                      <li>Use cases and requirements</li>
+                      <li>Prioritization Heatmap and Roadmap, Maturity Score</li>
+                      <li>AI Literacy</li>
+                    </ul>
+                  </div>
+                  <div class="card-footer">
+                    <div class="team-info">
+                      Principal + Jr Architect
+                    </div>
+                  </div>
+                </div>
+
+                <!-- AI Foundry Card -->
+                <div class="service-card">
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <div class="card-icon icon-blue">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M15 13L12 9l-3 4M10 16h4" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3 class="card-title">AI FOUNDRY</h3>
+                    <div class="price-bar blue-bar">
+                      Scope and Scale ~ <span class="wavy-underline">LoE</span>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4>OFFERINGS</h4>
+                    <ul>
+                      <li>Custom AI models, integrations, generative AI</li>
+                      <li>Business Case, TCO and ROI</li>
+                      <li>Modular options (Base + Extras model)</li>
+                      <li>Platform for duration of Foundry and Build Phase</li>
+                      <li>Production-ready AI use cases</li>
+                    </ul>
+                  </div>
+                  <div class="card-footer">
+                    <div class="team-info">
+                      AI Architect + Data Engineer + Data Scientist
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Audit Suite Card -->
+                <div class="service-card">
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <div class="card-icon icon-blue">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 8a4 4 0 100 8 4 4 0 000-8z" stroke="currentColor" stroke-width="1.5" />
+                          <path
+                            d="M12 2v2M12 20v2M22 12h-2M4 12H2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M19.07 4.93l-1.41 1.41M6.34 17.66l-1.41 1.41"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                          <path d="M21.89 15.65a10 10 0 01-19.78-7.3" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3 class="card-title">AUDIT SUITE</h3>
+                    <div class="price-bar blue-bar">
+                      $X0000/ 6 weeks
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4>OFFERINGS</h4>
+                    <ul>
+                      <li>Cybersecurity, Performance reviews (Bias, Explainability, Toxicity Index)</li>
+                      <li>Global AI Compliance, Governance & regulatory adherence</li>
+                      <li>AI Audit, AI Bill of materials, Model Card dispositions</li>
+                    </ul>
+                  </div>
+                  <div class="card-footer">
+                    <div class="team-info">
+                      Data Scientist + AI Risk Analyst + Cybersecurity Analyst
+                    </div>
+                  </div>
+                </div>
+
+                <!-- All-Inclusive Card -->
+                <div class="service-card all-inclusive">
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <div class="card-icon icon-gold">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M14 2v6h6M9 13.5l2 2 4-4" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3 class="card-title">ALL-INCLUSIVE</h3>
+                    <div class="price-bar gold-bar">
+                      Scope and Scale ~ <span class="wavy-underline">LoE</span>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4>OFFERINGS</h4>
+                    <ul>
+                      <li>End to End FUSE (Ideation, AI Foundry, Audit Suite)</li>
+                      <li>AI adoption as a Service, integration, and compliance</li>
+                      <li>Future Proof</li>
+                    </ul>
+                    <div class="team-info-highlight">
+                      Full Stack AI Strategy and Deployment Team (AI Architects, Data Engineers, Data Scientists, AI
+                      Risk Analysts, Cybersecurity Analysts)
+                    </div>
+                  </div>
+                  <div class="card-footer"></div>
+                </div>
+
+              </div>
+
+              <footer class="footer-notes">
+                <ul>
+                  <li>FUSEFY is a platform-based consulting service.</li>
+                  <li>Timelines and Pricing are indicative and subject to change based on scope and client needs.</li>
+                  <li>Customers can buy additional professional services. Contact the <a href="#">Fusefy account
+                      team</a> for more details.</li>
+                </ul>
+              </footer>
+            </div>
+            <!-- End user-provided content -->
+          </main>
+        </div>
+        <footer class="slide-footer">
+          <div class="footer-content">
+            <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
+            <span class="page-number">08</span>
+          </div>
+        </footer>
+      </section>
+
+      <section class="offering-fabric-slide" data-auto-animate data-transition="zoom">
+        <div class="slide-padding">
+          <header class="slide-header" style="position: relative;">
             <h1 data-auto-animate data-auto-animate-duration="1.5">
               Thank You
             </h1>
             <img src="images/A blue cube with lines and dots Description automatically generated.png" alt="Company Logo"
               class="company-logo" data-auto-animate data-auto-animate-duration="1" />
+            <!-- Download Button moved to top right below the header line -->
+            <button class="download-btn" id="downloadPDF"
+              style="position: absolute; right: 0; top: 100%; margin-top: 10px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                <path
+                  d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+              </svg>
+              Download PDF
+            </button>
           </header>
 
           <main class="fabric-diagram">
-            <div style="text-align: center; margin-top: 80px">
+            <div style="text-align: center; margin-top: 30px">
               <h1 style="
                     font-size: 28px;
                     color: #0021f3;
@@ -1929,16 +2571,58 @@
                   <strong><u>info@fusefy.ai</u></strong>
                 </a>
               </p>
-              <!-- Download Button moved inside header -->
-              <button class="download-btn" id="downloadPDF">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path
-                    d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                  <path
-                    d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
-                </svg>
-                Download PDF
-              </button>
+              <h1 style="
+                    font-size: 28px;
+                    color: var(--primary-blue-dark);
+                    font-weight: 700;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                      Roboto, 'Helvetica Neue', Arial, sans-serif;
+                  ">
+                AI Top vibes
+              </h1>
+              <div style="display: flex; align-items: center;" class="last-slide-images">
+                <!-- New Image 1 -->
+                <div style="max-width: 300px; height: 140px; margin-left: 20px;" class="last-slide-item">
+                  <div class="agent-image-container">
+                    <img src="images/lastpage 1.png" alt="Extra Agent 1" class="agent-image sequential-image"
+                      onclick="showZoom(this.src)" style="width: 100%; height: 100%; object-fit: contain;" />
+                    <div class="zoom-hint">Click to zoom</div>
+                  </div>
+                  <a href="https://www.fusefy.ai/aivibes/" target="_blank" style="text-decoration: none;">
+                    <div style="margin-top: 8px; font-size: 17px; font-weight: bold; color: rgb(6, 6, 153);" class="sequential-content">
+                      Optimizing RAG pipelines A Deep Dive into Hyperparameter 
+                    </div>
+                  </a>
+                </div>
+
+                <!-- New Image 2 -->
+                <div style="max-width: 300px; height: 140px; margin-left: 20px;" class="last-slide-item">
+                  <div class="agent-image-container">
+                    <img src="images/last page 2.png" alt="Extra Agent 2" class="agent-image sequential-image"
+                      onclick="showZoom(this.src)" style="width: 100%; height: 100%; object-fit: contain;" />
+                    <div class="zoom-hint">Click to zoom</div>
+                  </div>
+                  <a href="https://www.fusefy.ai/aivibes/" target="_blank" style="text-decoration: none;">
+                    <div style="margin-top: 8px; font-size: 17px; font-weight: bold; color: rgb(6, 6, 153);" class="sequential-content">
+                      Predicting and Preventing Tenant Churn with Fusefy's AI Solution
+                    </div>
+                  </a>
+                </div>
+
+                <!-- New Image 3 -->
+                <div style="max-width: 300px; height: 140px; margin-left: 20px;" class="last-slide-item">
+                  <div class="agent-image-container">
+                    <img src="images/last page 3.png" alt="Extra Agent 3" class="agent-image sequential-image"
+                      onclick="showZoom(this.src)" style="width: 100%; height: 100%; object-fit: contain;" />
+                    <div class="zoom-hint">Click to zoom</div>
+                  </div>
+                  <a href="https://www.fusefy.ai/aivibes/" target="_blank" style="text-decoration: none;">
+                    <div style="margin-top: 8px; font-size: 17px; font-weight: bold; color: rgb(6, 6, 153);" class="sequential-content">
+                      Security-First Strategies for AI First Deployents
+                    </div>
+                  </a>
+                </div>
+              </div>
             </div>
           </main>
         </div>
@@ -1946,7 +2630,7 @@
         <footer class="slide-footer">
           <div class="footer-content">
             <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
-            <span class="page-number">07</span>
+            <span class="page-number">09</span>
           </div>
         </footer>
       </section>
@@ -2000,6 +2684,73 @@
           RevealZoom,
           RevealSearch,
         ],
+      });
+
+      // --- NEW: Reset service card animation on slide entry ---
+      Reveal.on("slidechanged", function (event) {
+        setupListAnimations();
+        setupParagraphAnimations();
+
+        // Check if the current slide is the service offerings slide
+        if (
+          event.currentSlide &&
+          event.currentSlide.classList.contains("service-offerings-slide")
+        ) {
+          // Get all service cards
+          const cards = event.currentSlide.querySelectorAll(".service-card");
+          cards.forEach((card, idx) => {
+            // Remove animation
+            card.style.animation = "none";
+            // Force reflow
+            void card.offsetWidth;
+            // Re-apply animation with correct delay
+            card.style.animation =
+              "fadeInUp var(--animation-duration) " +
+              (0.3 + idx * 0.3) +
+              "s forwards cubic-bezier(0.34, 1.56, 0.64, 1)";
+          });
+        }
+
+        // Animation for last slide (Thank You slide)
+        if (event.currentSlide && event.currentSlide.classList.contains("offering-fabric-slide")) {
+          // Get the three images and their content containers
+          const images = event.currentSlide.querySelectorAll('.sequential-image');
+          const contentDivs = event.currentSlide.querySelectorAll('.sequential-content');
+
+          // Reset animations first
+          images.forEach(img => {
+            img.style.opacity = '0';
+            img.style.transform = 'translateY(30px)';
+            img.style.transition = 'none';
+          });
+
+          contentDivs.forEach(div => {
+            div.style.opacity = '0';
+            div.style.transform = 'translateY(20px)';
+            div.style.transition = 'none';
+          });
+
+          // Force reflow
+          void event.currentSlide.offsetWidth;
+
+          // Apply sequential animations with delays
+          images.forEach((img, index) => {
+            img.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            setTimeout(() => {
+              img.style.opacity = '1';
+              img.style.transform = 'translateY(0)';
+            }, 300 + (index * 600)); // 600ms between each image
+          });
+
+          // Animate content with delay after its corresponding image
+          contentDivs.forEach((div, index) => {
+            div.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            setTimeout(() => {
+              div.style.opacity = '1';
+              div.style.transform = 'translateY(0)';
+            }, 600 + (index * 600)); // Start after image animation begins
+          });
+        }
       });
 
       // Add animation to list items
@@ -2124,6 +2875,28 @@
         }
       }
     });
+
+    // --- Animation reset for empty-slide images ---
+    Reveal.on('slidechanged', function (event) {
+      if (event.currentSlide && event.currentSlide.classList.contains('empty-slide')) {
+        // Select the three images by their animation classes
+        const imgTopLeft = event.currentSlide.querySelector('.image-top-left');
+        const imgTopRight = event.currentSlide.querySelector('.image-top-right');
+        const imgBottom = event.currentSlide.querySelector('.image-bottom');
+        // Remove animation classes to reset
+        [imgTopLeft, imgTopRight, imgBottom].forEach(img => {
+          if (img) {
+            img.style.animation = 'none';
+            // Force reflow to restart animation
+            void img.offsetWidth;
+          }
+        });
+        // Re-add animation classes (will trigger animation)
+        if (imgTopLeft) imgTopLeft.style.animation = '';
+        if (imgTopRight) imgTopRight.style.animation = '';
+        if (imgBottom) imgBottom.style.animation = '';
+      }
+    });
   </script>
   <script>
     // Function to generate PDF
@@ -2187,6 +2960,61 @@
               fragment.classList.add("visible");
             });
 
+            // Special handling for slide 2 (empty-slide)
+            if (i === 1 && currentSlide.classList.contains('empty-slide')) {
+              // Force all images to be fully visible
+              const slideImages = currentSlide.querySelectorAll('img');
+              slideImages.forEach(img => {
+                img.style.animation = 'none';
+                img.style.opacity = '1';
+                img.style.transform = 'none';
+              });
+              // Wait longer for images to render properly
+              await new Promise((resolve) => setTimeout(resolve, 300));
+            }
+
+            // Special handling for slide 8 (Service Offerings slide)
+            if (i === 7 && currentSlide.classList.contains('service-offerings-slide')) {
+              // Force all service cards to be fully visible
+              const serviceCards = currentSlide.querySelectorAll('.service-card');
+              serviceCards.forEach(card => {
+                card.style.animation = 'none';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              });
+
+              // Make all footer notes visible
+              const footerNotes = currentSlide.querySelectorAll('.footer-notes, .footer-notes li');
+              footerNotes.forEach(note => {
+                note.style.animation = 'none';
+                note.style.opacity = '1';
+                note.style.transform = 'translateY(0)';
+              });
+
+              // Wait longer for complex content to render properly
+              await new Promise((resolve) => setTimeout(resolve, 500));
+            }
+
+            // Special handling for slide 9 (Thank You slide)
+            if (i === 8 && currentSlide.classList.contains('offering-fabric-slide')) {
+              // Make all sequential images and content visible
+              const sequentialImages = currentSlide.querySelectorAll('.sequential-image');
+              const sequentialContent = currentSlide.querySelectorAll('.sequential-content');
+
+              sequentialImages.forEach(img => {
+                img.style.opacity = '1';
+                img.style.transform = 'translateY(0)';
+              });
+
+              sequentialContent.forEach(content => {
+                content.style.opacity = '1';
+                content.style.transform = 'translateY(0)';
+              });
+
+              // Wait longer for content to render properly
+              await new Promise((resolve) => setTimeout(resolve, 300));
+            }
+
             // Ensure videos are displayed in their current state
             const videos = currentSlide.querySelectorAll("video");
             videos.forEach((video) => {
@@ -2197,7 +3025,7 @@
             });
 
             // Wait a bit more for fragments and videos to render
-            await new Promise((resolve) => setTimeout(resolve, 100));
+            await new Promise((resolve) => setTimeout(resolve, 300));
 
             // Capture the current slide
             const slideElement = document.querySelector(".reveal .present");
@@ -2218,16 +3046,55 @@
               });
             });
 
-            // Use html2canvas to capture the slide
+            // Use html2canvas to capture the slide with improved settings
             const canvas = await html2canvas(slideElement, {
               scale: 2,
               useCORS: true,
               allowTaint: true,
               logging: false,
               backgroundColor: "#ffffff",
+              imageTimeout: 5000, // Increase timeout for image loading
+              onclone: function(clonedDoc) {
+                // Additional processing on the cloned document
+                const clonedSlide = clonedDoc.querySelector(".reveal .present");
+                if (clonedSlide) {
+                  // Force all elements to be visible in the clone
+                  const allElements = clonedSlide.querySelectorAll('*');
+                  allElements.forEach(el => {
+                    if (el.style && (el.style.opacity === '0' || el.style.visibility === 'hidden')) {
+                      el.style.opacity = '1';
+                      el.style.visibility = 'visible';
+                    }
+
+                    // Remove any transforms that might hide elements
+                    if (el.style && el.style.transform && 
+                      (el.style.transform.includes('translateY') || 
+                        el.style.transform.includes('scale'))) {
+                      el.style.transform = 'none';
+                    }
+                  });
+
+                  // Special handling for service cards in the clone
+                  if (clonedSlide.classList.contains('service-offerings-slide')) {
+                    const clonedCards = clonedSlide.querySelectorAll('.service-card');
+                    clonedCards.forEach(card => {
+                      card.style.opacity = '1';
+                      card.style.transform = 'none';
+                      card.style.animation = 'none';
+                    });
+
+                    const clonedFooterNotes = clonedSlide.querySelectorAll('.footer-notes, .footer-notes li');
+                    clonedFooterNotes.forEach(note => {
+                      note.style.opacity = '1';
+                      note.style.transform = 'none';
+                      note.style.animation = 'none';
+                    });
+                  }
+                }
+              }
             });
 
-            // Convert canvas to image
+            // Convert canvas to image with high quality
             const imgData = canvas.toDataURL("image/jpeg", 1.0);
 
             // Add to PDF (first page doesn't need addPage)
@@ -2244,7 +3111,7 @@
             // Calculate ratio to fit the image properly with reduced vertical margins
             const horizontalRatio = pdfWidth / imgWidth;
             const verticalRatio = pdfHeight / imgHeight;
-            const ratio = Math.min(horizontalRatio, verticalRatio * 1.15); // Increase vertical ratio by 10%
+            const ratio = Math.min(horizontalRatio, verticalRatio * 1.15); // Increase vertical ratio by 15%
 
             const imgX = (pdfWidth - imgWidth * ratio) / 2;
             const imgY = (pdfHeight - imgHeight * ratio) / 2 - 5; // Move up by 5mm

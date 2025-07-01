@@ -1874,6 +1874,17 @@
     </div>
   </div>
 
+  <!-- Purchase Order Storylane Modal -->
+  <div class="storylane-modal" id="poStoryModal">
+    <div class="storylane-container">
+      <div class="close-storylane" onclick="closeStorylaneTour('poStoryModal')">&times;</div>
+      <div class="storylane-iframe-container">
+        <iframe loading="lazy" class="sl-demo" src="https://app.storylane.io/demo/g09yahjbhs5e?embed=inline"
+          name="sl-embed" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
   <div class="reveal">
     <div class="slides">
       <section class="index-slide" data-auto-animate>
@@ -2171,6 +2182,69 @@
           </div>
         </footer>
       </section>
+
+      <!-- Purchase Order Processing Slide -->
+      <section class="content-slide">
+        <div class="slide-padding">
+          <header class="slide-header">
+            <h1>Order Processing Agent</h1>
+            <img src="images/A blue cube with lines and dots Description automatically generated.png" alt="Company Logo">
+          </header>
+          <main class="slide-content">
+            <div style="display: flex; flex-direction: column; height: 100%;">
+              <div style="flex: 1;">
+                <h2 style="color: #0021f3; font-weight: 900; font-style: italic; margin-bottom: 15px;">AI-Driven Purchase Order Review & Inventory Insights</h2>
+
+                <ul style="padding-left: 30px; margin-top: 10px">
+                  <li>
+                    AI detects and flags potential data inconsistencies in the extracted Purchase Order. Users can review and update key fields like vendor details, item information, and charges using the document preview.
+                  </li>
+                  <li>
+                    Inventory availability is verified for each PO item. AI-generated notes highlight required vintages and quantities for restocking.
+                  </li>
+                  <li>
+                    Stock levels are updated automatically. Items marked as 'Low' or 'Out of Stock' can be reordered through the ERP system via the 'Order Item' button.
+                  </li>
+                  <li>
+                    AI assesses fulfillment risk using sentiment scoring based on stock levels, PO evaluation, and payment urgency. A breakdown reveals key risk contributors.
+                  </li>
+                  <li>
+                    The AI agent provides intelligent, context-aware support by answering PO-related queries, checking inventory, and guiding reorder decisions.
+                  </li>
+                </ul>
+
+                <p style="margin-top: 20px; font-size: 16px;">
+                  <a href="javascript:openPOStorylaneTour()" style="color: #002060">
+                    <strong><u>Launch Interactive Demo →</u></strong>
+                  </a>
+                </p>
+                <div style="display: flex; align-items: center;" class="last-slide-images">
+                  <div style="max-width: 300px; height: 140px; margin-left: 330px;" class="last-slide-item">
+                  <div class="agent-image-container">
+                    <img style="border:1.7px solid grey ;" src="images/PO1.png" alt="Extra Agent 1"
+                      onclick="showZoom(this.src)" style="width: 100%; height: 100%; object-fit: contain;" />
+                    <div class="zoom-hint">Click to zoom</div>
+                  </div>
+                </div>
+                <div style="max-width: 300px; height: 140px; margin-left: 20px;" class="last-slide-item">
+                  <div class="agent-image-container">
+                    <img style="border:1.7px solid grey ;" src="images/PO2.png" alt="Extra Agent 1"
+                      onclick="showZoom(this.src)" style="width: 100%; height: 100%; object-fit: contain;" />
+                    <div class="zoom-hint">Click to zoom</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+        <footer class="slide-footer">
+          <div class="footer-content">
+            <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
+            <span class="page-number">06</span>
+          </div>
+        </footer>
+      </section>
+
       <!-- AI Foundry Main Slide -->
       <section class="content-slide" data-transition="slide">
         <div class="slide-padding">
@@ -2264,7 +2338,7 @@
         <footer class="slide-footer">
           <div class="footer-content">
             <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
-            <span class="page-number">06</span>
+            <span class="page-number">07</span>
           </div>
         </footer>
       </section>
@@ -2342,7 +2416,7 @@
         <footer class="slide-footer">
           <div class="footer-content">
             <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
-            <span class="page-number">07</span>
+            <span class="page-number">08</span>
           </div>
         </footer>
       </section>
@@ -2519,7 +2593,75 @@
         <footer class="slide-footer">
           <div class="footer-content">
             <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
-            <span class="page-number">08</span>
+            <span class="page-number">09</span>
+          </div>
+        </footer>
+      </section>
+
+      <!-- New Implementation Requirements Slide -->
+      <section class="content-slide" data-transition="slide">
+        <div class="slide-padding">
+          <header class="slide-header">
+            <h1>Implementation Requirements</h1>
+            <img src="images/A blue cube with lines and dots Description automatically generated.png" alt="Company Logo"
+              class="company-logo" />
+          </header>
+          <main class="slide-content">
+            <div style="display: flex; justify-content: space-between; gap: 30px;">
+              <!-- Left Column -->
+              <div style="flex: 1;">
+                <h2>Account Access</h2>
+                <div style="margin-bottom: 20px;">
+                  <h3 style="color: #002060; margin-bottom: 10px;">1. Atlassian Account</h3>
+                  <p>You'll need an Atlassian account to access Jira and Bitbucket.</p>
+                  <p>If you already have one, ensure you have:</p>
+                  <ul style="margin-left: 20px;">
+                    <li>Access to our Jira workspace</li>
+                    <li>Access to the Bitbucket repositories</li>
+                  </ul>
+                  <p>If you don't have an Atlassian account, we can provision access through our organization.</p>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                  <h3 style="color: #002060; margin-bottom: 10px;">2. App UI Access</h3>
+                  <p>The UI is embedded inside Jira as a Forge App.</p>
+                  <p>Once your Atlassian account is added to our workspace, you will see the app in the left navigation panel.</p>
+                </div>
+              </div>
+
+              <!-- Right Column -->
+              <div style="flex: 1;">
+                <h2>Backend Requirements</h2>
+                <div style="margin-bottom: 20px;">
+                  <h3 style="color: #002060; margin-bottom: 10px;">1. AWS Account</h3>
+                  <p>The backend requires access to AWS services.</p>
+                  <p>You have two options:</p>
+                  <ul style="margin-left: 20px;">
+                    <li>Use your own AWS account (we will provide setup instructions and IAM roles).</li>
+                    <li>Use our AWS backend (we'll provide API endpoints and credentials).</li>
+                  </ul>
+                </div>
+
+                <h2>Backend Architecture & Access</h2>
+                <p>Our system uses a multi-tenant architecture with the following components:</p>
+
+                <div style="margin-bottom: 20px;">
+                  <h3 style="color: #002060; margin-bottom: 10px;">Database Access & Storage(S3) </h3>
+                  <ul style="margin-left: 20px;">
+                    <li>A Master DB handles global configs and tenant mapping (internal use only).</li>
+                    <li>Each tenant has its own isolated Tenant DB with full CRUD access.</li> 
+                    <li>Tenants get separate buckets or paths.</li>
+                    <li>They have full control (upload/download/delete) over their own storage.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+        <footer class="slide-footer">
+          <div class="footer-content">
+            <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
+            <span class="page-number">10</span>
           </div>
         </footer>
       </section>
@@ -2628,7 +2770,7 @@
         <footer class="slide-footer">
           <div class="footer-content">
             <span class="copyright">www.fusefy.ai | All rights reserved, Copyright © 2025</span>
-            <span class="page-number">09</span>
+            <span class="page-number">11</span>
           </div>
         </footer>
       </section>
@@ -2824,6 +2966,15 @@
       Reveal.configure({ keyboard: false });
     }
 
+    // Function to open Purchase Order Storylane tour
+    function openPOStorylaneTour() {
+      const modal = document.getElementById("poStoryModal");
+      modal.classList.add("active");
+
+      // Disable Reveal.js keyboard navigation while tour is active
+      Reveal.configure({ keyboard: false });
+    }
+
     // Function to close Storylane tour
     function closeStorylaneTour(modalId) {
       const modal = document.getElementById(modalId);
@@ -2859,6 +3010,14 @@
         }
       });
 
+    document
+      .getElementById("poStoryModal")
+      .addEventListener("click", function (event) {
+        if (event.target === this) {
+          closeStorylaneTour('poStoryModal');
+        }
+      });
+
     // Close zoom/storylane with Escape key
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
@@ -2870,6 +3029,9 @@
         }
         if (document.getElementById("interviewStoryModal").classList.contains("active")) {
           closeStorylaneTour('interviewStoryModal');
+        }
+        if (document.getElementById("poStoryModal").classList.contains("active")) {
+          closeStorylaneTour('poStoryModal');
         }
       }
     });
